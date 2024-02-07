@@ -1,0 +1,68 @@
+<form [formGroup]="registerForm">
+  <p-card header="Hola, Registrate Porfi" [style]="{ width: '360px' }">
+    <div class="field">
+      <label for="email">Nombre de Usuario</label>
+      <input
+        type="text"
+        pInputText
+        formControlName="fullname"
+        class="w-full"
+        name="email"
+        placeholder="Nombre completo"
+      />
+    </div>
+    <small
+    *ngIf="fullname.invalid && (fullname.dirty || fullname.touched)"
+    class="block p-error"
+  >
+    <div *ngIf="fullname.hasError('required')"></div>
+  </small>
+    <div class="field">
+        <label for="email">Correo Electronico</label>
+        <input
+          type="email"
+          pInputText
+          formControlName="email"
+          class="w-full"
+          name="email"
+          placeholder="Correo Electronico"
+        />
+      </div>
+    <small
+      *ngIf="email.invalid && (email.dirty || email.touched)"
+      class="block p-error"
+    >
+      <div *ngIf="email.hasError('required')"></div>
+    </small>
+
+    <div class="field">
+      <label for="email">Contraseña</label>
+      <input
+        type="password"
+        pInputText
+        formControlName="password"
+        class="w-full"
+        name="password"
+        placeholder="Contraseña"
+      />
+    </div>
+
+    <div class="field">
+        <label for="email">Confirmar Contraseña</label>
+        <input
+          type="password"
+          pInputText
+          formControlName="confirmPassword"
+          class="w-full"
+          name="password"
+          placeholder="Confirmar Contraseña"
+        />
+      </div>
+
+    <p-button label="Registrar"[disabled]="this.registerForm.invalid" styleClass="w-full"></p-button>
+
+    <div class="mt-2">
+      ¿Tienes una cuenta? <a routerLink="/login">Ingresar</a>
+    </div>
+  </p-card>
+</form>
