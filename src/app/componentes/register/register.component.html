@@ -1,4 +1,4 @@
-<form [formGroup]="registerForm">
+<form [formGroup]="registerForm" (ngSubmit)="enviarUsuario()">
   <p-card header="Hola, Registrate Porfi" [style]="{ width: '360px' }">
     <div class="field">
       <label for="email">Nombre de Usuario</label>
@@ -59,7 +59,7 @@
         />
       </div>
 
-    <p-button label="Registrar"[disabled]="this.registerForm.invalid" styleClass="w-full"></p-button>
+    <p-button type="submit" label="Registrar"[disabled]="this.registerForm.invalid" styleClass="w-full"></p-button>
 
     <div class="mt-2">
       ¿Tienes una cuenta? <a routerLink="/login">Ingresar</a>
